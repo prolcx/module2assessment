@@ -1,0 +1,9 @@
+<p>country-list works!</p>
+
+<button type="button" [routerLink]="['/apikey']">Settings</button>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let a of countrylistArray" [routerLink]="['/countrylist', a.alpha]">{{a.country}}
+        <img src="{{a.flag}}" alt="" width="50" height="50"
+        ></li>
+  </ul>

@@ -1,0 +1,20 @@
+<p>detail works!</p>
+<tr>
+    <td>News from {{country}}</td>
+    <td></td>
+    <td><button type="button" [routerLink]="['/countrylist']">Back</button></td>
+</tr>
+
+<div>
+    <div *ngFor="let a of searchContent">
+        <h1>{{a.title}} - {{a.source.name}}</h1><br>
+        <div *ngIf="a.author"><h5>by {{a.author}}</h5></div><br>
+        <h3>{{a.description}}</h3><br>
+        <a href="{{a.url}}">Link to the News</a><br>
+        <img src="{{a.urlToImage}}" alt="">
+        <h5>Published at: {{a.publishedAt}}</h5><br>
+        <p>{{a.content}}</p>
+        <br><br>
+
+    </div>
+</div>

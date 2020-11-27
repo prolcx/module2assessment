@@ -52,7 +52,7 @@ export class DetailComponent implements OnInit {
           publishedAt: b.publishedAt,
           content: b.content
         }
-        this.cachecontentdb.addCache(this.cacheContent)
+        // this.cachecontentdb.addCache(this.cacheContent)
       }
         console.log(this.searchContent)
       })

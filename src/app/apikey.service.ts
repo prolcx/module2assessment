@@ -13,17 +13,6 @@ export class ApiService {
           .toPromise()
       }
     
-    
-    async getCountryDetail(): Promise<any> {
-        return await this.http.get<any>('https://newsapi.org/docs/endpoints/top-headlines')
-          .toPromise()
-      }  
-
-    // async getResult(genre: string, q: string): Promise<any> {
-    //     return await this.http.get<any>(`https://api.jikan.moe/v3/search/${genre}?q=${q}`)
-    //     .toPromise()
-    // }
-
 }
 
 @Injectable()

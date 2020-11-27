@@ -8,6 +8,17 @@ export interface Countrylist{
     id: string;
     alpha: string;
     flag: string;
-    
+ 
+}
 
+export interface CacheContent{
+    title: string;
+    source: string;
+    author: string;
+    description: string;
+    url: string;
+    imageurl: string;
+    publishedAt: string;
+    content: string
+ 
 }

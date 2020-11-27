@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import Dexie from 'dexie';
-import {Apikey, Countrylist} from  './apikey';
+import {Apikey, Countrylist, CacheContent} from  './apikey';
 
 @Injectable()
 
@@ -59,8 +59,29 @@ export class CountrylistDatabase extends Dexie {
         return this.countrylist/*.orderBy('country')*/.toArray()
     }
 
-//    async deleteApikey(a: string): Promise<any>{
-//         return this.apikey1.delete(a)
-//     }
+}
+
+export class CacheContentDatabase extends Dexie {
+
+    private cachecontent1: Dexie.Table<CacheContent, string>;
+
+    constructor(){
+        super('cachecontentdb')
+
+        this.version(1).stores({
+            cachecontent: "id"
+            // search: "++id,title"                          //number id base, need further study
+        })
+
+        this.cachecontent1 = this.table('cachecontent')
+    }
+
+    async addCache(a: CacheContent): Promise<any> {
+        return this.cachecontent1.add(a)                         //add for adding new, put is for edit and update
+    }
+
+    getCache(): Promise<any>{
+        return this.cachecontent1/*.orderBy('country')*/.toArray()
+    }
 
 }

@@ -16,7 +16,6 @@ export class CountryListComponent implements OnInit {
 
   countryListResult: any
   countrylistArray: any
-  countryNotLoaded: boolean = true
 
 
   constructor(private countrySvc: ApiService, private countrylistdb: CountrylistDatabase, private router: Router) { }

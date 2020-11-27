@@ -11,7 +11,7 @@ import { ApiService, SearchService } from './apikey.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
-import { ApikeyDatabase, CountrylistDatabase } from './apikey.database';
+import { ApikeyDatabase, CountrylistDatabase, CacheContentDatabase } from './apikey.database';
 
 const ROUTES: Routes = [
   {path:'', component: MainComponent},
@@ -37,7 +37,7 @@ const ROUTES: Routes = [
     FormsModule, ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ApikeyDatabase, CountrylistDatabase, ApiService, SearchService],
+  providers: [ApikeyDatabase,CacheContentDatabase, CountrylistDatabase, ApiService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

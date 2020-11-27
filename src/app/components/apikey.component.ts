@@ -38,7 +38,7 @@ export class ApikeyComponent implements OnInit {
 
     await this.apikeydb.addApikey(apikeyForDB)
     
-    // await this.goToCountryList()
+    await this.goToCountryList()
     this.apikeydb.getApikey()
     .then(res =>{
     this.apikeyContent = res

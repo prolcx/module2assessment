@@ -20,7 +20,6 @@ export class MainComponent implements OnInit {
     this.apikeydb.getApikey()
     .then(res =>{
     this.apikeyContent = res
-    console.log(this.apikeyContent)
 
     if (this.apikeyContent.length<=0){
       this.router.navigate(['/apikey'])

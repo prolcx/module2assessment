@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { SearchService } from '../apikey.service';
+import { ApikeyDatabase} from '../apikey.database';
+
 
 @Component({
   selector: 'app-detail',
@@ -11,25 +13,29 @@ import { SearchService } from '../apikey.service';
 })
 export class DetailComponent implements OnInit {
 
+  apikeyContent =''
   country =''
   apikey=''
   countryName=''
   searchContent: any
 
-  constructor(private activatedRouter: ActivatedRoute, private searchSvc: SearchService) { }
+  constructor(private activatedRouter: ActivatedRoute, private searchSvc: SearchService, private apikeydb: ApikeyDatabase) { }
 
   ngOnInit(): void {
 
     this.country = this.activatedRouter.snapshot.params['country']
-    this.apikey = '93e1cad1ae284573bf1f8b640cdf25f5'
 
+    this.apikeydb.getApikey()
+    .then(res =>{
+    this.apikey = res[0].apikey
+    
 
     this.searchSvc.getResult(this.country, this.apikey)
       .then(res => {
         this.searchContent = res.articles
         console.log(this.searchContent)
       })
-      .catch(e=> console.log(e))
+      .catch(e=> console.log(e, 'Check your API Key!'))
+  })
   }
-
 }
